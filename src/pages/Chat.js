@@ -203,7 +203,7 @@ function Chat(props) {
                           { showPicker && <div className='fixed -translate-y-52 -translate-x-2'> <Picker className="" onEmojiClick={onEmojiClick} /></div> }
                           
                           <form onSubmit={submitText} className="w-full flex">
-                            <input required value={text} onChange={changeHandler} placeholder='Type your message here' name='message' id='message' type='text' autoComplete='off' className='text-white w-full mx-2 rounded-md h-10 p-2 font-semibold bg-transparent'/>
+                            <input onClick={()=>{setShowPicker(false)}} required value={text} onChange={changeHandler} placeholder='Type your message here' name='message' id='message' type='text' autoComplete='off' className='text-white w-full mx-2 rounded-md h-10 p-2 font-semibold bg-transparent'/>
                          
                             <button type='submit'> <i className="fa fa-paper-plane fa-xl text-slate-200 hover:text-slate-400 cursor-pointer" aria-hidden="true"></i></button>
                           </form>
