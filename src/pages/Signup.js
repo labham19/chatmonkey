@@ -2,7 +2,8 @@ import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-const host = "https://chatmonkey.herokuapp.com/";
+ const host = "https://chatmonkey.herokuapp.com/";
+// const host = "http://localhost:5000/";
 
 function Signup(props) {
 let navigate = useNavigate();

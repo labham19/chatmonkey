@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 
 const host = "https://chatmonkey.herokuapp.com/";
+// const host = "http://localhost:5000/";
+
 function Avatar(props) {
     const [avatars,setAvatars] = useState([]);
     const [active,setActive] = useState(null);

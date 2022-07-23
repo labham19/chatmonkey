@@ -4,8 +4,11 @@ import Picker from 'emoji-picker-react';
 import axios from 'axios';
 import io from 'socket.io-client';
 
-const host = "https://chatmonkey.herokuapp.com/";
-const socket = io.connect("https://chatmonkey.herokuapp.com/");
+ const host = "https://chatmonkey.herokuapp.com/";
+ const socket = io.connect("https://chatmonkey.herokuapp.com/");
+
+//const host = "http://localhost:5000/";
+//const socket = io.connect("http://localhost:5000/");
 
 function Chat(props) {
   
@@ -49,6 +52,7 @@ function Chat(props) {
     if(!localStorage.getItem('chatmonkeytoken')){
       navigate('/login');
     }
+    
 
     axios.post(host+'api/auth/getUser',{},{headers:{'auth-token':localStorage.getItem('chatmonkeytoken')}})
     .then(async (res)=>{
@@ -56,6 +60,7 @@ function Chat(props) {
        if(!res.data.vector){
         navigate('/avatar');
        }
+       socket.emit('new-user-add',res.data._id);
     })
     .catch(err=>{
       console.log(err);
@@ -80,6 +85,7 @@ function Chat(props) {
 
   const logout = () =>{
     localStorage.removeItem('chatmonkeytoken');
+    socket.emit('disconnected');
     navigate('/login');
   }
 
