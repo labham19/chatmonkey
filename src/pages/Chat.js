@@ -5,7 +5,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
  const host = "https://chatmonkey.herokuapp.com/";
- const socket = io.connect("https://chatmonkey.herokuapp.com/");
+ const socket = io.connect("https://chatmonkey.herokuapp.com");
 
 //const host = "http://localhost:5000/";
 //const socket = io.connect("http://localhost:5000/");
